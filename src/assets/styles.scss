@@ -1,0 +1,35 @@
+@import './vars.scss';
+
+html,
+body,
+.page,
+#app {
+  height: 100%;
+  font-family: sans-serif;
+  background: $light;
+  font-size: 100%;
+}
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 2vw;
+}
+
+.home__send {
+  background-color: $dark;
+  height: 90vh;
+  width: 45vw;
+  border-radius: $rounding;
+  display: block;
+}
+
+.home__dash {
+  background-color: $dark;
+  height: 60vh;
+  width: 45vw;
+  border-radius: $rounding;
+  display: block;
+}
