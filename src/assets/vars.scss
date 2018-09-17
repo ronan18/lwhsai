@@ -1,3 +1,15 @@
 $light: #2F434E;
 $dark: #1E303A;
 $rounding: 10pt;
+$green: #40D198;
+$red: #F5847E;
+$yellow:#F4D568;
+$placeholder: rgba(white, 0.8);
+
+@mixin shadow {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+@mixin transition {
+  transition-duration: 0.5s;
+}

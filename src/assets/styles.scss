@@ -24,6 +24,75 @@ body,
   width: 45vw;
   border-radius: $rounding;
   display: block;
+  @include shadow;
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25fr 1fr;
+}
+
+.send__messages {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  width: 100%;
+  text-align: right;
+  color: white;
+}
+
+.message {
+  margin: 1% 0;
+
+}
+
+.message__text {
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.message__score {
+  color: $red;
+}
+
+.message__time {
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+
+.send__form {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.send__form__message {
+  display: block;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 2rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.send__form__submit {
+  display: block;
+  border: none;
+  border-radius: $rounding;
+  background: $green;
+  @include shadow;
+  width: 20%;
+  color: white;
+  font-weight: 500;
+  font-size: 1.3rem;
+  padding: 1% 1%;
+  @include transition;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .home__dash {
@@ -32,4 +101,115 @@ body,
   width: 45vw;
   border-radius: $rounding;
   display: block;
+  @include shadow;
+  padding: 1% 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.sliderContainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  appearance: none;
+  width: 100%;
+  /* Full-width */
+  height: 4vh;
+  /* Specified height */
+  background-image: linear-gradient(to right, $green, $yellow, $red);
+  /* Grey background */
+  outline: none;
+  border-radius: 100pt;
+
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  width: 5.3vh;
+  /* Set a specific slider handle width */
+  height: 5.3vh;
+  border-radius: 100pt;
+  background: white;
+  @include shadow;
+  opacity: 0.9;
+
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  /* Set a specific slider handle width */
+  height: 25px;
+  /* Slider handle height */
+  background: #4CAF50;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
+}
+
+.slider__description {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  margin-bottom: 1%;
+}
+
+.dash__stat {
+  margin-top: 3%;
+}
+
+.dash__score {
+  font-size: 9rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: $placeholder;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: $placeholder;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: $placeholder;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $placeholder;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $placeholder;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: $placeholder;
+}
+
+.yellow {
+  color: $yellow
+}
+
+.green {
+  color: $green;
+}
+
+.red {
+  color: $red;
 }
