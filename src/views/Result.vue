@@ -105,15 +105,30 @@ export default {
       this.$router.push('/')
     }
     if (message == 'chuckNorris') {
-      fetch('http://api.icndb.com/jokes/random?escape=javascript')
-        .then(response => response.json())
-        .then(data => {
-          message = data.value.joke
-          setTimeout(() => {
-            this.results = this.getData(message)
-            this.message = message
-          }, 500)
-        })
+      let randNum = Math.floor(Math.random() * 2)
+      console.log(randNum)
+      if (randNum == 0) {
+        fetch('http://api.icndb.com/jokes/random?escape=javascript')
+          .then(response => response.json())
+          .then(data => {
+            message = data.value.joke
+            setTimeout(() => {
+              this.results = this.getData(message)
+              this.message = message
+            }, 500)
+          })
+      } else if (randNum == 1) {
+        fetch('http://ron-swanson-quotes.herokuapp.com/v2/quotes')
+          .then(response => response.json())
+          .then(data => {
+            message = data[0]
+            //console.log(data)
+            setTimeout(() => {
+              this.results = this.getData(message)
+              this.message = message
+            }, 500)
+          })
+      }
     } else {
       setTimeout(() => {
         this.results = this.getData(message)
