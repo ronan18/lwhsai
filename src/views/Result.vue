@@ -8,6 +8,7 @@
   </div>
   <p v-if="!results" class="loading__text">Calculating</p>
   <p v-if="results" class="result__num" :class="colorClass">{{round(results.sentiment)}}</p>
+  <p v-if="results" class="message">{{this.message}}</p>
   <div @keyup.space="reload()" v-if="results" class="sliderContainer">
     <div class="slider__label__row">
       <label class="slider__label">negative</label>
@@ -26,22 +27,40 @@ export default {
   name: 'home',
   data() {
     return {
-
+      message: '',
       results: null
     }
   },
   mounted() {
-
     let message = this.$route.params.query
-    setTimeout(() => {
-      this.results = this.getData(message)
-    }, 500)
-    window.addEventListener("keypress", (e) => {
-      if (e.code == "Space" && this.$route.path == '/result' || e.code == "Enter" && this.$route.path == '/result') {
+    if (!message) {
+      this.$router.push('/')
+    }
+    if (message == 'chuckNorris') {
+      fetch('http://api.icndb.com/jokes/random?escape=javascript')
+        .then(response => response.json())
+        .then(data => {
+          message = data.value.joke
+          setTimeout(() => {
+            this.results = this.getData(message)
+            this.message = message
+          }, 500)
+        })
+    } else {
+      setTimeout(() => {
+        this.results = this.getData(message)
+        this.message = message
+      }, 500)
+    }
+
+    window.addEventListener('keypress', e => {
+      if (
+        (e.code == 'Space' && this.$route.path == '/result') ||
+        (e.code == 'Enter' && this.$route.path == '/result')
+      ) {
         this.reload()
       }
-    });
-
+    })
   },
   methods: {
     getData(message) {
@@ -66,6 +85,5 @@ export default {
       }
     }
   }
-
 }
 </script>

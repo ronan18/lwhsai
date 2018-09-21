@@ -17,7 +17,17 @@ export default {
   },
   methods: {
     submit() {
-      if (this.message.length > 5) {
+      if (
+        this.message.toLowerCase() == 'test' ||
+        this.message.toLowerCase() == 'testing'
+      ) {
+        this.$router.push({
+          name: 'result',
+          params: {
+            query: 'chuckNorris'
+          }
+        })
+      } else if (this.message.length >= 5) {
         this.$router.push({
           name: 'result',
           params: {
@@ -25,9 +35,8 @@ export default {
           }
         })
       } else {
-        this.error = "please make sure your sentence has more than 5 characters"
+        this.error = 'please make sure your sentence has more than 5 characters'
       }
-
     }
   }
 }

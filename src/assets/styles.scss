@@ -18,9 +18,11 @@ body,
   align-items: center;
   height: 100%;
   padding: 2vw;
+
   label {
     font-size: 2rem;
   }
+
   input {
     margin-top: 2%;
     width: 80vw;
@@ -34,11 +36,13 @@ body,
     @include transition;
     @include shadow;
     opacity: 0.8;
+
     &:focus {
       outline: none;
       opacity: 1;
     }
   }
+
   .error {
     color: $red;
     margin-top: 2%;
@@ -131,6 +135,7 @@ body,
 .red {
   color: $red;
 }
+
 .loading {
   width: 4vw;
   height: 5vh;
@@ -139,6 +144,7 @@ body,
   align-items: center;
   justify-content: space-between;
 }
+
 .loading-bar {
   display: inline-block;
   width: 1vh;
@@ -146,18 +152,22 @@ body,
   border-radius: 4vh;
   animation: loading 1s ease-in-out infinite;
 }
+
 .loading-bar:nth-child(1) {
   background-color: $red;
   animation-delay: 0;
 }
+
 .loading-bar:nth-child(2) {
   background-color: #f4ae73;
   animation-delay: 0.09s;
 }
+
 .loading-bar:nth-child(3) {
   background-color: #c0d476;
   animation-delay: 0.18s;
 }
+
 .loading-bar:nth-child(4) {
   background-color: $green;
   animation-delay: 0.27s;
@@ -167,30 +177,41 @@ body,
   0% {
     transform: scale(1);
   }
+
   20% {
     transform: scale(1, 2.2);
   }
+
   40% {
     transform: scale(1);
   }
 }
+
 .result {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   justify-content: center;
+
+  .message {
+    font-size: 1.5rem;
+  }
+
   .loading__text {
     margin-top: 3vh;
     font-size: 2rem;
   }
+
   .result__num {
     font-size: 15vw;
     font-weight: bold;
   }
+
   .results__time {
     font-weight: 100;
   }
+
   .btn {
     border: none;
     @include shadow;
@@ -202,11 +223,13 @@ body,
     border-radius: $rounding;
     margin-top: 5vh;
     text-decoration: none;
+
     &:hover {
       opacity: 0.8;
     }
   }
 }
+
 .slider__label__row {
   display: flex;
   width: 100%;
