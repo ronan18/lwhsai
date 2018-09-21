@@ -147,11 +147,11 @@ export default {
   },
   methods: {
     getData(message) {
-      return {
-        sentiment: Math.random() * 100,
-
-        time: Math.random().toFixed(2)
-      }
+       fetch(`http://127.0.0.1:5000/v98745/theonlyfuckingurl?sentence=${message}`)
+          .then(response => response.json())
+          .then(data => {
+            return data
+          })
     },
     round(i) {
       return Math.round(i)
