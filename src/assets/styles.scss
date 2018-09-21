@@ -195,7 +195,11 @@ body,
   justify-content: center;
 
   .message {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    width: 60%;
+    font-weight: 600;
+    margin-bottom: 1%;
+    text-align: center;
   }
 
   .loading__text {
@@ -206,6 +210,16 @@ body,
   .result__num {
     font-size: 15vw;
     font-weight: bold;
+    margin-bottom: 0px;
+    line-height: 12vw;
+    text-align: center;
+  }
+
+  .result__descriptor {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-weight: 200;
+    text-align: center;
   }
 
   .results__time {

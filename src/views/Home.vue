@@ -19,7 +19,8 @@ export default {
     submit() {
       if (
         this.message.toLowerCase() == 'test' ||
-        this.message.toLowerCase() == 'testing'
+        this.message.toLowerCase() == 'testing' ||
+        this.message.toLowerCase() == 'this is a test'
       ) {
         this.$router.push({
           name: 'result',

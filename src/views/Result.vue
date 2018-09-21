@@ -8,7 +8,8 @@
   </div>
   <p v-if="!results" class="loading__text">Calculating</p>
   <p v-if="results" class="result__num" :class="colorClass">{{round(results.sentiment)}}</p>
-  <p v-if="results" class="message">{{this.message}}</p>
+  <p class="result__descriptor" :class="colorClass" v-if="results">{{word}}</p>
+  <p v-if="results" class="message">"{{this.message}}"</p>
   <div @keyup.space="reload()" v-if="results" class="sliderContainer">
     <div class="slider__label__row">
       <label class="slider__label">negative</label>
@@ -23,6 +24,73 @@
 </template>
 
 <script>
+const wordbank = {
+  high: [
+    'super',
+    'magnificently',
+    'marvelously',
+    'outstandingly',
+    'superbly',
+    'terrificly',
+    'wonderfuly',
+    'super',
+    'groovy',
+    'smashingly',
+    'positivly',
+    'supprisingly'
+  ],
+  medium: [
+    'somewhat',
+    'a little',
+    'fairly',
+    'kind of',
+    'moderately',
+    'partially',
+    'pretty',
+    'rather',
+    'slightly',
+    'incompleatly',
+    'more or less',
+    'ratherish',
+    'to a degree',
+    'nearly',
+    'almost'
+  ],
+  positive: [
+    'positive',
+    'groovy',
+    'good',
+    'positive',
+    'kind',
+    'amiable',
+    'cordial',
+    'courteous',
+    'friendly',
+    'gracious',
+    'kindly',
+    'loving',
+    'neighborly',
+    'big'
+  ],
+  negative: [
+    'callous',
+    'mean',
+    'neagtive',
+    'dirty',
+    'evil',
+    'malicious',
+    'nasty',
+    'rough',
+    'ugly',
+    'vicious',
+    'vile',
+    'sinking',
+    'sour',
+    'churlish',
+    'snide',
+    'disagreeable'
+  ]
+}
 export default {
   name: 'home',
   data() {
@@ -66,6 +134,7 @@ export default {
     getData(message) {
       return {
         sentiment: Math.random() * 100,
+
         time: Math.random().toFixed(2)
       }
     },
@@ -82,6 +151,39 @@ export default {
         green: this.results.sentiment >= 66,
         yellow: this.results.sentiment < 66 && this.results.sentiment > 33,
         red: this.results.sentiment <= 33
+      }
+    },
+    word() {
+      let num = this.results.sentiment
+      let first, last
+      if (num >= 50) {
+        last =
+          wordbank.positive[
+            Math.floor(Math.random() * wordbank.positive.length)
+          ]
+
+        if (num >= 75) {
+          first =
+            wordbank.high[Math.floor(Math.random() * wordbank.high.length)]
+        } else {
+          first =
+            wordbank.medium[Math.floor(Math.random() * wordbank.medium.length)]
+        }
+        return first + ' ' + last
+      } else {
+        last =
+          wordbank.negative[
+            Math.floor(Math.random() * wordbank.positive.length)
+          ]
+
+        if (num <= 25) {
+          first =
+            wordbank.high[Math.floor(Math.random() * wordbank.high.length)]
+        } else {
+          first =
+            wordbank.medium[Math.floor(Math.random() * wordbank.medium.length)]
+        }
+        return first + ' ' + last
       }
     }
   }
