@@ -39,6 +39,10 @@ body,
       opacity: 1;
     }
   }
+  .error {
+    color: $red;
+    margin-top: 2%;
+  }
 }
 
 .sliderContainer {

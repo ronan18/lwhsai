@@ -37,7 +37,7 @@ export default {
       this.results = this.getData(message)
     }, 500)
     window.addEventListener("keypress", (e) => {
-      if (e.code == "Space" && this.$route.path == '/result') {
+      if (e.code == "Space" && this.$route.path == '/result' || e.code == "Enter" && this.$route.path == '/result') {
         this.reload()
       }
     });
